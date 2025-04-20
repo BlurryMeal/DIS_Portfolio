@@ -11,7 +11,6 @@ import { AnimatePresence } from "framer-motion";
 import { Avatar } from "@/components/Avatar";
 import { SocialPresence } from "@/components/SocialPresence";
 import { ContextAwareTheme } from "@/components/ContextAwareTheme";
-import { CustomCursor } from "@/components/CustomCursor";
 
 import { useEffect } from "react";
 
@@ -62,7 +61,6 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <CustomCursor />
             <Navbar />
             <AppRoutes />
             <Avatar />
