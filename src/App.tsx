@@ -13,13 +13,7 @@ import { SocialPresence } from "@/components/SocialPresence";
 import { ContextAwareTheme } from "@/components/ContextAwareTheme";
 import { CustomCursor } from "@/components/CustomCursor";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Projects from "./pages/Projects";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
@@ -42,24 +36,43 @@ function AppRoutes() {
   );
 }
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="system">
-      <ContextAwareTheme />
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <CustomCursor />
-          <Navbar />
-          <AppRoutes />
-          <Avatar />
-          <SocialPresence />
-          <Footer />
-        </BrowserRouter>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import Contact from "./pages/Contact";
+import NotFound from "./pages/NotFound";
+
+const App = () => {
+  // Add debug log to help troubleshoot mobile issues
+  useEffect(() => {
+    console.log("App component mounted, screen size:", {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      userAgent: navigator.userAgent
+    });
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="system">
+        <ContextAwareTheme />
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <CustomCursor />
+            <Navbar />
+            <AppRoutes />
+            <Avatar />
+            <SocialPresence />
+            <Footer />
+          </BrowserRouter>
+        </TooltipProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
