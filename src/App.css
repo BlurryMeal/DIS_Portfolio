@@ -1,25 +1,4 @@
 
-/* Hide default cursor globally */
-html, body {
-  cursor: none !important;
-}
-
-/* Specific elements that may need text cursor */
-input, textarea, select, [role="textbox"] {
-  cursor: text !important;
-}
-
-/* Interactive elements keep custom cursor styling */
-button, a, [role="button"], .clickable {
-  cursor: none !important;
-}
-
-#root {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
 
 /* Hide default cursor on non-mobile devices */
 @media (min-width: 768px) {

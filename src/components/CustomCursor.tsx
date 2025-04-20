@@ -2,12 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [clicked, setClicked] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
   const [hidden, setHidden] = useState(true); // Hide cursor until mouse moves
+
+  const isMobile = useIsMobile();
+  
+  // Don't render anything on mobile devices
+  if (isMobile) return null;
   
   useEffect(() => {
     // Show cursor when mouse first moves
@@ -54,22 +60,6 @@ export function CustomCursor() {
         el.removeEventListener('mouseleave', onLinkHoverEnd);
       });
     };
-  }, []);
-  
-  // Hide cursor on mobile devices
-  useEffect(() => {
-    const checkMobile = () => {
-      if (window.innerWidth < 768) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
   }, []);
   
   if (hidden) return null;

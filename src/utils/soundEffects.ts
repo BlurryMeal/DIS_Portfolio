@@ -13,10 +13,10 @@ export const playSound = (soundName: keyof typeof soundEffects) => {
     
     if (playPromise !== undefined) {
       playPromise.catch(error => {
-        console.error(`Error playing ${soundName} sound:`, error);
+        console.log(`Note: Sound ${soundName} couldn't play. This is normal on mobile devices with autoplay restrictions.`);
       });
     }
   } catch (error) {
-    console.error(`Failed to play ${soundName} sound:`, error);
+    console.log("Audio playback not supported on this device");
   }
 };
