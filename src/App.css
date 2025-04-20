@@ -1,0 +1,85 @@
+
+/* Hide default cursor globally */
+html, body {
+  cursor: none !important;
+}
+
+/* Specific elements that may need text cursor */
+input, textarea, select, [role="textbox"] {
+  cursor: text !important;
+}
+
+/* Interactive elements keep custom cursor styling */
+button, a, [role="button"], .clickable {
+  cursor: none !important;
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Hide default cursor on non-mobile devices */
+@media (min-width: 768px) {
+  html, body {
+    cursor: none !important;
+  }
+  
+  /* Keep default cursor for specific elements that need it */
+  input, textarea, select, [role="textbox"] {
+    cursor: text !important;
+  }
+  
+  button, a, [role="button"], .clickable {
+    cursor: none !important;
+  }
+}
+
+/* Update global styles */
+body {
+  background-color: #000;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Mono', monospace;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

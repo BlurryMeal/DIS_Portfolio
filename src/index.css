@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 86%;  /* #DBDBDB */
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 90%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 90%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 90%;
+
+    --secondary: 0 0% 80%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 80%;
+    --muted-foreground: 0 0% 35%;
+
+    --accent: 0 0% 80%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 90%;
+
+    --border: 0 0% 80%;
+    --input: 0 0% 80%;
+    --ring: 0 0% 20%;
+
+    --radius: 0.25rem;
+  }
+
+  .dark {
+    --background: 0 0% 9%;  /* #161616 */
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 12%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 80%;
+  }
+
+  .spring {
+    --background: 69 67% 67%;  /* #CEE87B */
+    --foreground: 0 0% 0%;
+
+    --card: 69 67% 75%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 69 67% 75%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 69 67% 75%;
+
+    --secondary: 69 67% 57%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 69 67% 57%;
+    --muted-foreground: 0 0% 35%;
+
+    --accent: 69 67% 57%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 69 67% 75%;
+
+    --border: 69 67% 57%;
+    --input: 69 67% 57%;
+    --ring: 0 0% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border font-sans;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply animate-fade-in max-w-5xl mx-auto px-4 sm:px-6 py-12;
+  }
+  
+  .section-title {
+    @apply text-2xl sm:text-3xl font-bold mb-6 pb-2 border-b;
+  }
+  
+  .hover-link {
+    @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, currentColor 1px, transparent 1px),
+      linear-gradient(to bottom, currentColor 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .carousel-arrow-btn {
+    @apply w-14 h-14 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center border border-primary/20 shadow-lg transition-all;
+  }
+  
+  .carousel-arrow-btn:hover {
+    @apply bg-background border-primary/40 shadow-xl;
+  }
+  
+  .carousel-arrow-btn:active {
+    @apply bg-primary/10;
+  }
+  
+  @keyframes slight-move {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .animate-slight-move {
+    animation: slight-move 0.5s ease-in-out;
+  }
+  
+  @keyframes slide-in-left {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes slide-in-right {
+    0% { transform: translateX(20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  .animate-slide-in-left {
+    animation: slide-in-left 0.3s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out forwards;
+  }
+}
